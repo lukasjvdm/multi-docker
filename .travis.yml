@@ -15,5 +15,14 @@ after_success:
   - docker build -t lukasjvdm/multi-nginx ./nginx
   - docker build -t lukasjvdm/multi-server ./server
   - docker build -t lukasjvdm/multi-worker ./worker
+  #log in to docker CLI with a single command
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  #echo -> retrieve password from env variable and emit over stdin as input to next command
+  # -u "$DOCKER_ID" -> add username with -u flag
+  #--password-stdin -> recieve password from stdin
 
-  
+  #take images and push them to docker hub
+  - docker push lukasjvdm/multi-client
+  - docker push lukasjvdm/multi-nginx
+  - docker push lukasjvdm/multi-server
+  - docekr push lukasjvdm/multi-worker
