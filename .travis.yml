@@ -26,4 +26,4 @@ after_success:
   - docker push lukasjvdm/multi-client
   - docker push lukasjvdm/multi-nginx
   - docker push lukasjvdm/multi-server
-  - docekr push lukasjvdm/multi-worker
+  - docker push lukasjvdm/multi-worker
