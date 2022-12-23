@@ -1,3 +1,4 @@
+language: generic
 sudo: required
 services:
   - docker
@@ -7,7 +8,7 @@ before_install:
   #-docker build myotherproject     -> if we want to add more tests for server/worker
 
 script:
-  - docker run lukasjvdm/react-test npm test -- --coverage #the tag ensures that the test suite actually exits after completion with its appropriate code
+  - docker run -e CI=true lukasjvdm/react-test npm test #the tag ensures that the test suite actually exits after completion with its appropriate code
   #-docker run myother project runmytests
 
 after_success:
